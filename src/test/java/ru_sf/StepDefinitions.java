@@ -8,6 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
+import java.time.Duration;
+
 public class StepDefinitions {
     private static final WebDriver webDriver;
     private static final HomePage homePage;
@@ -30,13 +33,15 @@ public class StepDefinitions {
 
     @Then("click buy button")
     public void click_buy_button() {
-        webDriver.findElement(By.xpath("//*[@id=\"view_list\"]/div/div[3]/div/p/strong/img")).click();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webDriver.findElement(By.xpath("/html/body/div[6]/div/div[3]/div[2]/div[1]/div/div[1]/div[2]/div/div[2]/div[7]/div/div[3]/div/p/strong/img")).click();
 
     }
 
     @And("check cart")
     public void check_cart() {
-        webDriver.findElement(By.xpath("//*[@id=\"topBox\"]/div[1]/a[2]")).click();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webDriver.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/div[2]/div[3]/div/div[1]/a[2]")).click();
     }
 
 
